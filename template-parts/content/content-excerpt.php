@@ -11,28 +11,25 @@
 
 ?>
 
-<ul class="wow fadeInUp" data-wow-offset="350">
-    <?php global $post; ?>
-    <?php $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' ); ?>
-    <li class="imagen">
-        <a href="<?php the_permalink() ?>">
-            <div style="background:url(<?php echo $src[0]; ?>) center no-repeat; height:100%; position:absolute; width:100%;"></div>
-        </a>
-    </li>
-    <div class="texto">
-        <li class="titulo">
-			<p class="fecha"><?php the_time( 'd M, Y' ); ?></p>
-            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>">
-                <?php the_title(); ?>
-            </a>
-        </li>
-        <li class="extracto">
-            <?php the_excerpt(); ?>
-        </li>
-        <li class="seguir">
-            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>">
-                Seguir leyendo
-            </a>
-        </li>
-    </div>
-</ul>
+<article class="post-card wow fadeInUp" data-wow-offset="350" id="post-<?php the_ID(); ?>">
+    <a href="<?php the_permalink() ?>" class="post-card-link">
+        <div class="post-card-image-wrapper">
+			<?php global $post; ?>
+			<?php $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large', false, '' ); ?>
+            <div class="post-card-image" style="background-image: url('<?php echo esc_url($src[0]); ?>');"></div>
+        </div>
+        <div class="post-card-content">
+            <h3 class="post-card-title"><?php the_title(); ?></h3>
+            <hr class="post-card-divider">
+            <div class="post-card-meta">
+				<?php 
+				$categories = get_the_category();
+				if ( ! empty( $categories ) ) {
+					echo '<span class="post-card-category">' . esc_html( $categories[0]->name ) . '</span>';
+				}
+				?>
+                <span class="post-card-date"><?php the_time( 'M d, Y' ); ?></span>
+            </div>
+        </div>
+    </a>
+</article>

@@ -76,17 +76,7 @@ get_header();
 						<?php $the_query = new WP_Query('category_name=noticias-generales&showposts=6');
 						while ($the_query->have_posts()) : $the_query->the_post();
 						$do_not_duplicate = $post->ID; ?>
-						<ul class="wow fadeInUp">
-							<?php global $post; ?>
-							<li class="fecha">
-								<?php the_time( 'd M' ); ?>
-							</li>
-							<li class="titulo">
-								<a href="<?php the_permalink() ?>" rel="bookmark">
-									<?php the_title(); ?>
-								</a>
-							</li>
-						</ul>
+						<?php get_template_part( 'template-parts/content/content', 'excerpt' ); ?>
 						<?php endwhile;?>
 					</div>
 					<a class="enlace btn btn-primary" href="<?php echo get_home_url(); ?>/noticias/noticias-generales/">
@@ -113,23 +103,7 @@ get_header();
 					<?php $the_query = new WP_Query('category_name=novedades-gestion&showposts=3');
 					while ($the_query->have_posts()) : $the_query->the_post();
 					$do_not_duplicate = $post->ID; ?>
-					<ul class="wow fadeInUp">
-						<?php global $post; ?>
-						<?php $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' ); ?>
-						<li class="imagen">
-							<a href="<?php the_permalink() ?>">
-								<div style="background:url(<?php echo $src[0]; ?>) center no-repeat; height:100%; position:absolute; width:100%;"></div>
-							</a>
-						</li>
-						<div class="texto">
-							<li class="titulo">
-								<p class="fecha"><?php the_time( 'd M, Y' ); ?></p>
-								<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>">
-									<?php the_title(); ?>
-								</a>
-							</li>
-						</div>
-					</ul>
+					<?php get_template_part( 'template-parts/content/content', 'excerpt' ); ?>
 					<?php endwhile;?>
 				</div>
 				<a class="enlace btn btn-primary" href="<?php echo get_home_url(); ?>/noticias/novedades-gestion/">
