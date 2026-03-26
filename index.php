@@ -75,20 +75,12 @@ get_header();
 		
 
 		<section>
-			<div class="noticias">
-				<h1>
-					<a href="<?php echo get_home_url(); ?>/noticias/noticias-generales/">Noticias Generales</a>
-				</h1>
-				<div class="loop">
-					<?php $the_query = new WP_Query('category_name=noticias-generales&showposts=6');
-					while ($the_query->have_posts()) : $the_query->the_post();
-					$do_not_duplicate = $post->ID; ?>
-					<?php get_template_part( 'template-parts/content/content', 'excerpt' ); ?>
-					<?php endwhile;?>
-				</div>
-				<a class="enlace btn btn-primary" href="<?php echo get_home_url(); ?>/noticias/noticias-generales/">
-					Ver más
-				</a>
+			<div class="noticias container-fluid overflow-hidden">
+				<?php 
+				set_query_var( 'slider_category', 'noticias-generales' );
+				set_query_var( 'slider_title', 'Noticias Generales' );
+				get_template_part( 'template-parts/slider', 'entradas' ); 
+				?>
 			</div>
 		</section>
 		
