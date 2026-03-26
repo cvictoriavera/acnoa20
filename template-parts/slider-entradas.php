@@ -16,9 +16,9 @@ $slider_id = uniqid('slider_');
         </button>
         
         <div class="slider-title-wrapper text-center w-100">
-            <h1 class="mb-0" style="display:inline-block; margin:0;">
+            <h2 class="mb-0" style="display:inline-block; margin:0;">
                 <a href="<?php echo esc_url($link); ?>" style="color:inherit; text-decoration:none;"><?php echo esc_html($title); ?></a>
-            </h1>
+            </h2>
         </div>
         
         <button class="slider-nav-btn d-none d-md-flex" onclick="let s=document.getElementById('<?php echo $slider_id; ?>'); s.scrollBy({left: s.querySelector('.slider-slide').offsetWidth + 32, behavior: 'smooth'})">

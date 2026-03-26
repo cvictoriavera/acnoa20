@@ -22,59 +22,25 @@ get_header();
 			?>
 		</section>
 
-		<section id="secciones-informativas">
-			<div class="container-fluid">
-				<div class="bloques">
-					<div class="normativa">
-						<a href="<?php echo get_home_url(); ?>/normativa-convenios-y-paritarias/">
-							<div class="imagen">
-								<h1>Normativa<br />Convenios y Paritarias</h1>
-							</div>
-						</a>
-					</div>
-					<div class="fitosanidad">
-						<a href="<?php echo get_home_url(); ?>/fitosanidad-calidad/">
-							<div class="imagen">
-								<h1>Fitosanidad y Calidad</h1>
-							</div>
-						</a>
-					</div>
-					<div class="mercados">
-						<a href="<?php echo get_home_url(); ?>/mercados/">
-							<div class="imagen">
-								<h1>Mercados</h1>
-							</div>
-						</a>
-					</div>
-					<div class="estadisticas">
-						<a href="<?php echo get_home_url(); ?>/estadisticas/">
-							<div class="imagen">
-								<h1>Estadísticas</h1>
-							</div>
-						</a>
-					</div>
-					<div class="capacitaciones">
-						<a href="<?php echo get_home_url(); ?>/capacitaciones/">
-							<div class="imagen">
-								<h1>Capacitaciones</h1>
-							</div>
-						</a>
-					</div>
-					<div class="covid-19">
-						<a href="<?php echo get_home_url(); ?>/covid-19/">
-							<div class="imagen">
-								<h1>COVID-19</h1>
-							</div>
-						</a>
+		<section id="estadisticas" class="container-fluid my-5">
+			<div class="row no-gutters w-100 m-0">
+				<!-- Izquierda: Texto -->
+				<div class="col-md-6 d-flex flex-column justify-content-center" style="padding: 5rem 3rem;">
+					<div class="estadisticas-contenido w-100" style="max-width: 500px; margin: 0 auto;">
+						<span class="d-inline post-card-category">Exclusivo</span>
+						<h2 class="my-2">Estadísticas</h2>
+						<span class="fs-2">Aquí encontrarás las estadísticas exclusivas para los directivos.</span>
+						<a href="#" class="mt-3 btn btn-estadisticas">Ver estadísticas</a>
 					</div>
 				</div>
-				
+				<!-- Derecha: Imagen Placeholder -->
+				<div class="col-md-6 p-0 d-flex">
+					<img src="<?php echo get_stylesheet_directory_uri(); ?>/imagenes/infographics.png" alt="Estadísticas" class="w-100" style="object-fit: cover; min-height: 400px;">
+				</div>
 			</div>
 		</section>
 
-		
-
-		<section>
+		<section class="py-5">
 			<div class="noticias container-fluid overflow-hidden">
 				<?php 
 				set_query_var( 'slider_category', 'noticias-generales' );
@@ -92,24 +58,6 @@ get_header();
 			</div>
 		</section>
 
-		<section id="novedades">
-			<div class="container-fluid px-0">
-				<h1>
-					<a href="<?php echo get_home_url(); ?>/noticias/novedades-gestion/">Novedades de Gestión</a>
-				</h1>
-				<div class="loop">
-					<?php $the_query = new WP_Query('category_name=novedades-gestion&showposts=3');
-					while ($the_query->have_posts()) : $the_query->the_post();
-					$do_not_duplicate = $post->ID; ?>
-					<?php get_template_part( 'template-parts/content/content', 'excerpt' ); ?>
-					<?php endwhile;?>
-				</div>
-				<a class="enlace btn btn-primary" href="<?php echo get_home_url(); ?>/noticias/novedades-gestion/">
-					Ver más
-				</a>
-			</div>
-		</section>
-
 		<section id="publicitar">
 			<div class="container">
 				<?php
@@ -120,9 +68,9 @@ get_header();
 
 		<section id="citricos">
 			<div class="container-fluid">
-				<h1>
+				<h2 class="text-center mb-4">
 					Consumir cítricos hace bien
-				</h1>
+				</h2>
 				<div class="d-flex flex-wrap justify-content-center" style="gap: 1.5rem;">
 					<?php set_query_var( 'category_slug', 'salud' ); ?>
 					<?php get_template_part( 'template-parts/content/content', 'category-card' ); ?>
